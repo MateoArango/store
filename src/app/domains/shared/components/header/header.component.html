@@ -42,7 +42,7 @@
   </div>
   <div>
     @for (product of cart(); track product.id) {
-    <span class = "pe-20"> {{ product.title }}</span><span> {{ product.price.toFixed(2) }} </span>
+    <span class = "pe-20"> {{ product.title }}</span><span> {{ product.price | currency }} </span>
     <img [src]="product.image" [alt]="product.title" style="width: 50px;">
     <hr>
 
