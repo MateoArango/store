@@ -42,14 +42,13 @@
   </div>
   <div>
     @for (product of cart(); track product.id) {
-    <p> {{ product.title }}</p>
-    <p> {{ product.price.toFixed(2) }} </p>
+    <span class = "pe-20"> {{ product.title }}</span><span> {{ product.price.toFixed(2) }} </span>
     <img [src]="product.image" [alt]="product.title" style="width: 50px;">
     <hr>
 
     }
-    <p class="mt-4 text-lg">
-      <strong>Total: {{ totalPrice().toFixed(2) }} </strong>
+    <p class="mt-4 text-lg ps-32">
+      <strong >Total: {{ total() | currency }} </strong>
     </p>
   </div>
 </div>
