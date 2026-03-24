@@ -17,7 +17,11 @@
       "ES2022",
       "dom"
     ],
-    "module": "preserve"
+    "module": "preserve",
+    "paths": {
+      "@shared/*":["./src/app/domains/shared/*"],
+      "@products/*":["./src/app/domains/products/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
