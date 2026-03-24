@@ -1,24 +1,25 @@
-import { Component, input } from '@angular/core';
+import { Component, input, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { signal } from '@angular/core';
 import { Product } from '../../models/product.model';
 import { computed } from '@angular/core';
-
+import { CurrencyPipe } from '@angular/common'; // <--- Este es el que te falta
+import { CartService } from '../../services/cart.service';
 
 @Component({
+  standalone: true,
   selector: 'app-header',
-  imports: [RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
+  imports: [RouterLink, CurrencyPipe],
 
 })
 export class HeaderComponent {
   hideSideMenu = signal(true);
-  cart = input.required<Product[]>();
-  totalPrice = computed(() => {
-    return this.cart().reduce((acc, product) => acc + product.price, 0);
-  });
-  
+  private cartService = inject(CartService);
+  cart = this.cartService.cart;
+  total = this.cartService.total;
+
   toogleSideMenu() {
     this.hideSideMenu.update(prevState => !prevState);
   }
