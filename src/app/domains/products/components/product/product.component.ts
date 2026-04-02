@@ -15,7 +15,14 @@ export class ProductComponent {
   @Input({required: true}) product!: Product;
   @Output() addToCart = new EventEmitter();
 
+  defaultImage = 'https://via.placeholder.com/600x400?text=Sin+imagen';
+
   addToCartHandler() {
     this.addToCart.emit(this.product);
+  }
+
+  onImageError(event: Event) {
+    const img = event.target as HTMLImageElement;
+    img.src = this.defaultImage;
   }
 }

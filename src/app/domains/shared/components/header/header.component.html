@@ -13,7 +13,7 @@
           <a routerLink="/about" class="block hover:underline">About</a>
         </li>
         <li>
-          <a href="#" class="block hover:underline">Services</a>
+          <a routerLink="/services" class="block hover:underline">Services</a>
         </li>
       </ul>
     </div>
@@ -43,7 +43,7 @@
   <div>
     @for (product of cart(); track product.id) {
     <span class = "pe-20"> {{ product.title }}</span><span> {{ product.price | currency }} </span>
-    <img [src]="product.images[1]" [alt]="product.title" style="width: 50px;">
+    <img [src]="product.images?.[1] || 'https://via.placeholder.com/50x50?text=No+Img'" [alt]="product.title" style="width: 50px;">
     <hr>
 
     }
