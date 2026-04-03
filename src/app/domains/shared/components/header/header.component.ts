@@ -5,14 +5,15 @@ import { Product } from '../../models/product.model';
 import { computed } from '@angular/core';
 import { CurrencyPipe } from '@angular/common'; // <--- Este es el que te falta
 import { CartService } from '../../services/cart.service';
-import { RouterLinkWithHref } from '@angular/router';
+import { RouterLinkWithHref, RouterLinkActive } from '@angular/router';
+
 
 @Component({
   standalone: true,
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
-  imports: [RouterLink, CurrencyPipe, RouterLinkWithHref],
+  imports: [RouterLink, CurrencyPipe, RouterLinkWithHref, RouterLinkActive],
 
 })
 export class HeaderComponent {
